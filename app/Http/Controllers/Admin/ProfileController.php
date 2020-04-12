@@ -32,4 +32,9 @@ class ProfileController extends Controller
     {
         return view('admin.profile.creatework');
     }
+    
+    public function creatework()
+    {
+        return redirect('admin.profile.creatework');
+    }
 }
