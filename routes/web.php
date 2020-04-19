@@ -16,16 +16,16 @@ Route::get('/', function () {
 });
 
 Route::group(['prefix' => 'admin','middleware'=>'auth'], function() {
-    Route::get('news/create', 'Admin\NewsController@add')->middleware('auth');
+    Route::get('news/create', 'Admin\NewsController@add');
     Route::post('news/create','Admin\NewsController@create');
 });
 
-Route::group(['prefix'=>'admin/profile'],function(){
+Route::group(['prefix'=>'admin/profile','middleware'=>'auth'],function(){
     Route::get('create','Admin\ProfileController@add');
-    Route::get('edit','Admin\ProfileController@edit')->middleware('auth');
-    Route::get('creatework','Admin\ProfileController@view')->middleware('auth');
-    Route::post('edit','Admin\profileController@update')->middleware('auth');
-    Route::post('creatework','Admin\ProfileController@creatework')->middleware('auth');
+    Route::get('edit','Admin\ProfileController@edit');
+    Route::get('creatework','Admin\ProfileController@view');
+    Route::post('edit','Admin\profileController@update');
+    Route::post('creatework','Admin\ProfileController@creatework');
 });
 
 
